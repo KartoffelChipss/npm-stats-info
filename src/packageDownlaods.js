@@ -123,6 +123,11 @@ async function packageDownloads(package, start, end) {
 
     let downloadsRes = await getDownloads(package, endDate, startDate);
 
+    if (downloadsRes.error) {
+        throw new Error(downloadsRes.error);
+        return;
+    }
+
     let downloadsArr = downloadsRes.downloads;
 
     let maxDownloadsDay = getMaxDownloads(downloadsArr);
