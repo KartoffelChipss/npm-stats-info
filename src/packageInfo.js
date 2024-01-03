@@ -12,6 +12,12 @@ async function packageInfo(package) {
 
     const response = await fetch(`https://registry.npmjs.org/${package}`);
     const data = await response.json();
+
+    if (data.error) {
+        throw new Error(data.error);
+        return;
+    }
+
     return data;
 }
 

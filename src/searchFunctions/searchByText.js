@@ -36,6 +36,12 @@ async function searchByText(query, size, offset) {
 
     const response = await fetch(`https://registry.npmjs.org/-/v1/search?text=${query}&size=${size}&from=${offset}`);
     const data = await response.json();
+
+    if (data.error) {
+        throw new Error(data.error);
+        return;
+    }
+
     return data;
 }
 
