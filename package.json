@@ -1,17 +1,31 @@
 {
-  "name": "npmstatsinfo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/main.js",
-  "scripts": {
-    "test": "node tests/index.js",
-    "doc": "jsdoc -c jsdoc.conf.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "clean-jsdoc-theme": "^4.2.17",
-    "jsdoc": "^4.0.2"
-  }
+    "name": "npm-stats-info",
+    "version": "1.0.0",
+    "description": "This is an npm package to interact with the npm api and npm registry. You can search for npm packages, get details, statistics or downlaod counts of any npm package.",
+    "main": "src/main.js",
+    "scripts": {
+        "test": "node tests/index.js",
+        "doc": "jsdoc -c jsdoc.conf.js"
+    },
+    "keywords": [
+        "npm",
+        "stats",
+        "downloads",
+        "npm-stats"
+    ],
+    "author": "Kartoffelchips",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/KartoffelChipss/npm-stats-info"
+    },
+    "license": "LICENSE",
+    "bugs": {
+        "url": "https://github.com/KartoffelChipss/npm-stats-info/issues "
+    },
+    "homepage": "https://www.npmjs.com/package/npm-stats-info",
+    "readme": "README.md",
+    "devDependencies": {
+        "clean-jsdoc-theme": "^4.2.17",
+        "jsdoc": "^4.0.2"
+    }
 }
