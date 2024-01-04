@@ -2,6 +2,8 @@
 
 This is an npm package to interact with the npm api and npm registry. You can search for npm packages, get details, statistics or downlaod counts of any npm package.
 
+[![npm-downloads](https://img.shields.io/npm/dm/npm-stats-info)](https://www.npmjs.com/package/npm-stats-info) [![NPM-Version](https://img.shields.io/npm/v/npm-stats-info?label=Version)](https://www.npmjs.com/package/npm-stats-info) [![Discord](https://img.shields.io/discord/990295419005333554?color=%23738ADB&label=Discord)](https://strassburger.org/discord)
+
 If you have trouble with this package, feel free to ask me in my [Discord](https://discord.com/invite/Cc76tYwXvy).
 
 ## Table of contents
