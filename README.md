@@ -56,7 +56,7 @@ console.log(result)// Output the result
 
 ### LICENSE
 
-[GNU General Public License v3.0](https://github.com/KartoffelChipss/npm-stats-info/blob/main/LICENSE)
+[GNU General Public License v3.0](LICENSE)
 
 ### Changelog
 
