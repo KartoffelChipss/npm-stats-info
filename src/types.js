@@ -178,12 +178,13 @@
 
 /**
  * @typedef {Object} PackageDownloads
- * @property {DownloadsDay} today
- * @property {DownloadsDay} yesterday
+ * @property {number} total - Total amount of downloads in given time frame (default: last year)
+ * @property {DownloadsDay} today - Amount of downloads today
+ * @property {DownloadsDay} yesterday - Amount of downloads yesterday
  * @property {DownloadsDay} maxDownloadsDay
  * @property {DownloadsDay[]} dailyDownloads
- * @property {DownloadsMonth} thisMonth
- * @property {DownloadsMonth} lastMonth
+ * @property {DownloadsMonth} thisMonth - Amount of downloads this month
+ * @property {DownloadsMonth} lastMonth - Amount of downloads last month
  * @property {DownloadsMonth} maxDownloadsMonth
  * @property {DownloadsMonth[]} monthlyDownloads
  */

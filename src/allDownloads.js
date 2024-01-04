@@ -9,19 +9,17 @@ const {
 
 /**
  *
- * @param {string} package - The package name
  * @param {string} endDate
  * @param {string} startDate
  */
-async function getDownloads(package, endDate, startDate) {
-    const response = await fetch(`https://api.npmjs.org/downloads/range/${endDate}:${startDate}/${package}`);
+async function getDownloads(endDate, startDate) {
+    const response = await fetch(`https://api.npmjs.org/downloads/range/${endDate}:${startDate}`);
     const data = await response.json();
     return data;
 }
 
 /**
  * Get the amount of downloads of a certain package
- * @param {string} package - the name of the package (required)
  * @param {string} [start] - the start date (optional)
  * @param {string} [end] - the end date (optional)
  * @returns {Promise<PackageDownloads>}
@@ -30,9 +28,7 @@ async function getDownloads(package, endDate, startDate) {
  * let downloads = await npmStats.packageDownloads("splatoon3api");
  * console.log(downloads)
  */
-async function packageDownloads(package, start, end) {
-    if (package === undefined || package === null) size = "";
-
+async function allDownloads(start, end) {
     const now = new Date();
     const yesterday = ( function() { this.setDate(this.getDate()-1); return this } ).call(new Date);
     const lastMonth = ( function() { this.setDate(this.getMonth()-1); return this } ).call(new Date);
@@ -43,7 +39,7 @@ async function packageDownloads(package, start, end) {
     const startDate = `${start.getFullYear()}-${start.getMonth() + 1}-${start.getDate()}`;
     const endDate = `${end.getFullYear()}-${end.getMonth() + 1}-${end.getDate()}`;
 
-    let downloadsRes = await getDownloads(package, endDate, startDate);
+    let downloadsRes = await getDownloads(endDate, startDate);
 
     if (downloadsRes.error) {
         throw new Error(downloadsRes.error);
@@ -59,7 +55,6 @@ async function packageDownloads(package, start, end) {
     let maxDownloadsMonth = getMaxDownloads(downloadsPerMonth);
 
     return {
-        total: getTotalDownloads(downloadsArr),
         today: downloadsArr.find(d => d.day === formatDate(now)),
         yesterday: downloadsArr.find(d => d.day === formatDate(yesterday)),
         maxDownloadsDay: maxDownloadsDay,
@@ -71,4 +66,4 @@ async function packageDownloads(package, start, end) {
     }
 }
 
-module.exports = packageDownloads;
+module.exports = allDownloads;
