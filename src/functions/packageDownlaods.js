@@ -5,10 +5,11 @@ const {
     getDownloadsPerMonth,
     getTotalDownloads,
     
-} = require("./downloadsUtil.js");
+} = require("../downloadsUtil.js");
 
 /**
  *
+ * @private
  * @param {string} package - The package name
  * @param {string} endDate
  * @param {string} startDate
@@ -27,7 +28,13 @@ async function getDownloads(package, endDate, startDate) {
  * @returns {Promise<PackageDownloads>}
  *
  * @example
- * let downloads = await npmStats.packageDownloads("splatoon3api");
+ * // Get download statistics for "example-package"
+ * let downloads = await npmStats.packageDownloads("example-package");
+ * console.log(downloads)
+ * 
+ * // Get download statistics for "example-package" from 2023-12-01 until 2022-12-01 (Default is now to one year ago)
+ * // !!! When using a custom time span, "yesterday", "thisMonth" and "lastMonth" might be undefined!
+ * let downloads = await npmStats.packageDownloads("splatoon3api", "2023-12-01", "2022-12-01")
  * console.log(downloads)
  */
 async function packageDownloads(package, start, end) {
@@ -60,7 +67,6 @@ async function packageDownloads(package, start, end) {
 
     return {
         total: getTotalDownloads(downloadsArr),
-        today: downloadsArr.find(d => d.day === formatDate(now)),
         yesterday: downloadsArr.find(d => d.day === formatDate(yesterday)),
         maxDownloadsDay: maxDownloadsDay,
         dailyDownloads: downloadsArr,

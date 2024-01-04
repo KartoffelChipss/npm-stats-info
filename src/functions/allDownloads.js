@@ -5,10 +5,11 @@ const {
     getDownloadsPerMonth,
     getTotalDownloads,
     
-} = require("./downloadsUtil.js");
+} = require("../downloadsUtil.js");
 
 /**
  *
+ * @private
  * @param {string} endDate
  * @param {string} startDate
  */
@@ -19,13 +20,13 @@ async function getDownloads(endDate, startDate) {
 }
 
 /**
- * Get the amount of downloads of a certain package
+ * Get the amount of downloads from all packages on npm
  * @param {string} [start] - the start date (optional)
  * @param {string} [end] - the end date (optional)
  * @returns {Promise<PackageDownloads>}
  *
  * @example
- * let downloads = await npmStats.packageDownloads("splatoon3api");
+ * let downloads = await npmStats.allDownloads();
  * console.log(downloads)
  */
 async function allDownloads(start, end) {
@@ -55,7 +56,7 @@ async function allDownloads(start, end) {
     let maxDownloadsMonth = getMaxDownloads(downloadsPerMonth);
 
     return {
-        today: downloadsArr.find(d => d.day === formatDate(now)),
+        total: getTotalDownloads(downloadsArr),
         yesterday: downloadsArr.find(d => d.day === formatDate(yesterday)),
         maxDownloadsDay: maxDownloadsDay,
         dailyDownloads: downloadsArr,

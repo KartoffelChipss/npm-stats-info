@@ -1,6 +1,6 @@
 {
     "name": "npm-stats-info",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "This is an npm package to interact with the npm api and npm registry. You can search for npm packages, get details, statistics or downlaod counts of any npm package.",
     "main": "src/main.js",
     "scripts": {

@@ -1,12 +1,12 @@
 const types = require("./types.js");
 
-const search = require("./searchFunctions");
-const packageInfo = require("./packageInfo.js")
-const packageDownloads = require("./packageDownlaods.js");
-const allDownloads = require("./allDownloads.js")
+const searchPackage = require("./functions/searchPackage.js");
+const packageInfo = require("./functions/packageInfo.js")
+const packageDownloads = require("./functions/packageDownlaods.js");
+const allDownloads = require("./functions/allDownloads.js")
 
 module.exports = {
-    search,
+    searchPackage,
     packageInfo,
     packageDownloads,
     allDownloads

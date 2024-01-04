@@ -1,5 +1,6 @@
 /**
  * 
+ * @private
  * @param {Date} date
  * @returns {string}
  */
@@ -15,6 +16,7 @@ function formatDate(date) {
 
 /**
  * 
+ * @private
  * @param {number} month
  * @param {string} year
  * @returns {string}
@@ -28,6 +30,7 @@ function formatMonth(month, year) {
 
 /**
  * 
+ * @private
  * @param {object[]} downloadsArr - Array of downloads per day or month
  * @returns {number}
  */
@@ -45,6 +48,7 @@ function getMaxDownloads(downloadsArr) {
 
 /**
  * 
+ * @private
  * @param {Object[]} downloadsArr - Array of Downloads per day
  * @returns {GetDownloadsResult}
  */
@@ -87,6 +91,7 @@ function getDownloadsPerMonth(downloadsArr) {
 
 /**
  * 
+ * @private
  * @param {Object[]} downloadsArr - Array of Downloads per day
  * @returns {number}
  */

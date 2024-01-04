@@ -179,7 +179,6 @@
 /**
  * @typedef {Object} PackageDownloads
  * @property {number} total - Total amount of downloads in given time frame (default: last year)
- * @property {DownloadsDay} today - Amount of downloads today
  * @property {DownloadsDay} yesterday - Amount of downloads yesterday
  * @property {DownloadsDay} maxDownloadsDay
  * @property {DownloadsDay[]} dailyDownloads

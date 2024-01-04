@@ -1,9 +1,9 @@
 module.exports = {
     sourceType: "module",
     source: {
-        include: ["package.json", "README.md", "src"],
+        include: ["package.json", "README.md", "src", "src/*", "LICENSE", "CHANGELOG.md"],
         includePattern: ".js$",
-        excludePattern: "(node_modules/|docs)"
+        excludePattern: "(node_modules/|docs)",
     },
     opts: {
         destination: "./docs",

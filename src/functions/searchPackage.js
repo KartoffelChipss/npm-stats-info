@@ -26,12 +26,15 @@
  * // Maximum of 20 results,
  * // Page 5 (4 * 20 results get skipped)
  * let result = await npmStats.searchPackages("electron", 20, 4 * 20);
- * 
  * console.log(result)// Output the result
+ * 
+ * // Search for packages by "kartoffelchips", that has the keywords "splatoon" and "splatoon3"
+ * let myPackages = await npmStats.searchPackage("author:kartoffelchips keywords:splatoon+splatoon3");
+ * console.log(myPackages)// Output the result
  */
-async function searchByText(query, size, offset) {
+async function searchPackage(query, size, offset) {
     if (query === undefined || query === null) query = "";
-    if (size === undefined || size === null) size = 0;
+    if (size === undefined || size === null) size = 20;
     if (offset === undefined || offset === null) offset = 0;
 
     const response = await fetch(`https://registry.npmjs.org/-/v1/search?text=${query}&size=${size}&from=${offset}`);
@@ -45,4 +48,4 @@ async function searchByText(query, size, offset) {
     return data;
 }
 
-module.exports =  searchByText;
+module.exports = searchPackage;
