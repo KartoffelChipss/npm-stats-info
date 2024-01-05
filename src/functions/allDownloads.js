@@ -4,7 +4,7 @@ const {
     getMaxDownloads,
     getDownloadsPerMonth,
     getTotalDownloads,
-    
+    getDownloadsPerWeek,
 } = require("../downloadsUtil.js");
 
 /**
@@ -55,11 +55,19 @@ async function allDownloads(start, end) {
 
     let maxDownloadsMonth = getMaxDownloads(downloadsPerMonth);
 
+    let weeklyDownloads = getDownloadsPerWeek(downloadsArr);
+
+    let maxDownloadsWeek = getMaxDownloads(weeklyDownloads);
+
     return {
         total: getTotalDownloads(downloadsArr),
         yesterday: downloadsArr.find(d => d.day === formatDate(yesterday)),
         maxDownloadsDay: maxDownloadsDay,
         dailyDownloads: downloadsArr,
+        thisWeek: weeklyDownloads[weeklyDownloads.length - 1] ?? [],
+        lastWeek: weeklyDownloads[weeklyDownloads.length - 2] ?? [],
+        weeklyDownloads,
+        maxDownloadsWeek,
         thisMonth: downloadsPerMonth.find(d => d.month === formatMonth(now.getMonth(), now.getFullYear())),
         lastMonth: downloadsPerMonth.find(d => d.month === formatMonth(lastMonth.getMonth(), lastMonth.getFullYear())),
         maxDownloadsMonth: maxDownloadsMonth,

@@ -177,13 +177,23 @@
  */
 
 /**
+ * @typedef {Object} DownloadsWeek
+ * @property {string} week - Week as string (e.g. "2023-12-31 - 2024-01-05")
+ * @property {number} downloads - Donwloads in that week
+ */
+
+/**
  * @typedef {Object} PackageDownloads
  * @property {number} total - Total amount of downloads in given time frame (default: last year)
  * @property {DownloadsDay} yesterday - Amount of downloads yesterday
- * @property {DownloadsDay} maxDownloadsDay
+ * @property {DownloadsDay} maxDownloadsDay - Day with the highest download count
  * @property {DownloadsDay[]} dailyDownloads
+ * @property {DownloadsWeek} thisWeek - Amount of downloads this week
+ * @property {DownloadsWeek} lastWeek - Amount of downloads last week
+ * @property {DownloadsWeek[]} weeklyDownloads
+ * @property {DownloadsWeek} maxDownloadsWeek - Week with the highest download count
  * @property {DownloadsMonth} thisMonth - Amount of downloads this month
  * @property {DownloadsMonth} lastMonth - Amount of downloads last month
- * @property {DownloadsMonth} maxDownloadsMonth
+ * @property {DownloadsMonth} maxDownloadsMonth - Month with the highest download count
  * @property {DownloadsMonth[]} monthlyDownloads
  */

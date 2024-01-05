@@ -1,6 +1,6 @@
 {
     "name": "npm-stats-info",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "This is an npm package to interact with the npm api and npm registry. You can search for npm packages, get details, statistics or downlaod counts of any npm package.",
     "main": "src/main.js",
     "scripts": {
@@ -11,15 +11,26 @@
         "npm",
         "stats",
         "downloads",
-        "npm-stats"
+        "npm-stats",
+        "statistics",
+        "download-stats",
+        "download-count",
+        "downloadcount",
+        "npm-downloads",
+        "pacakge-downloads"
     ],
-    "author": "Kartoffelchips",
+    "author": {
+        "name": "Jan Straßburger",
+        "email": "contact@strassburger.org",
+        "url": "https://strassburger.org"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/KartoffelChipss/npm-stats-info"
     },
-    "license": "LICENSE",
+    "license": "GPL-3.0-only",
     "bugs": {
+        "email": "contact@strassburger.org",
         "url": "https://github.com/KartoffelChipss/npm-stats-info/issues "
     },
     "homepage": "https://www.npmjs.com/package/npm-stats-info",

@@ -105,10 +105,60 @@ function getTotalDownloads(downloadsArr) {
     return total;
 }
 
+/**
+ * 
+ * @private
+ * @param {Object[]} downloadsArr - Array of Downloads per day
+ * @returns {DownloadsWeek}
+ */
+function getDownloadsPerWeek(downloadsArr) {
+    const weeks = [];
+    let currentWeek = [];
+
+    for (const entry of downloadsArr) {
+        const entryDate = new Date(entry.day);
+        const currentDay = entryDate.getDay(); // 0 (Sunday) to 6 (Saturday)
+
+        if (currentDay === 0 && currentWeek.length > 0) {
+            weeks.push(currentWeek);
+            currentWeek = [];
+        }
+
+        currentWeek.push(entry);
+    }
+
+    // Add the last week
+    if (currentWeek.length > 0) {
+        weeks.push(currentWeek);
+    }
+
+    weeks.map(week => week.reduce((total, entry) => total + entry.downloads, 0));
+
+    let weeklyDownloads = [];
+    for (const week of weeks) {
+        let totalDownloads = 0;
+
+        let startDate = week[0].day;
+        let endDate = week[week.length - 1].day
+
+        for (const weekday of week) {
+            totalDownloads += weekday.downloads;
+        }
+
+        weeklyDownloads.push({
+            downloads: totalDownloads,
+            week: `${startDate} - ${endDate}`,
+        });
+    }
+
+    return weeklyDownloads;
+}
+
 module.exports = {
     formatDate,
     formatMonth,
     getMaxDownloads,
     getDownloadsPerMonth,
     getTotalDownloads,
+    getDownloadsPerWeek,
 }
